@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -87,7 +86,7 @@ const styles = theme => ({
   },
 });
 
-class Header extends React.Component {
+class header extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
@@ -170,7 +169,7 @@ class Header extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              Material-UI
+              Defect DashBoard
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -220,4 +219,4 @@ class Header extends React.Component {
 }
 
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(header);
