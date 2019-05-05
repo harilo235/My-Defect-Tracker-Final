@@ -9,10 +9,10 @@ public interface ProjectService {
 	void saveProject(Project project);
 	
 	List<Project> getAllProject();
-	Project findProjectById(Long id);
+	Project getProjectById(Long id);
 	Project deleteProjectById(Long id);
 	void updateProject(Project project);
-	Project getProjectById(Long id);
+
 	
 
 }

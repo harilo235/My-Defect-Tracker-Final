@@ -1,6 +1,7 @@
 package com.sgic.defect.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
 @Table(schema = "defect_final" , name = "user")
 public class User implements Serializable {
 
+    @Id
     Long userId;
     Long projectId;
     String userName;

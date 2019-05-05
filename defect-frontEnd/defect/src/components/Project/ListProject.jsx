@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
+import ListProject from "mui-datatables"
 
+const columns = ["Name", "Company", "City", "State"];
 
- class ListProject extends Component {
+const data = [
+ ["Joe James", "Test Corp", "Yonkers", "NY"],
+ ["John Walsh", "Test Corp", "Hartford", "CT"],
+ ["Bob Herm", "Test Corp", "Tampa", "FL"],
+ ["James Houston", "Test Corp", "Dallas", "TX"],
+];
 
-// constructor(props){
-//     super(props);
-//     this.state = { projects: [] };
-// }
+const options = {
+  filterType: 'checkbox',
+};
+
+class List extends Component {
   render() {
     return (
-      <div><br />
-      <br />
-        <h1>List Projects</h1>
+      <div>
+        <List 
+          title={"Project List"} 
+          data={data} 
+          columns={columns} 
+          options={options} 
+        />
       </div>
     )
   }
 }
 
-export default ListProject;
+export default List
