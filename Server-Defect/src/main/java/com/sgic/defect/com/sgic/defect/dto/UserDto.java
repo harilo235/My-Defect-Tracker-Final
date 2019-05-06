@@ -1,23 +1,15 @@
-package com.sgic.defect.entity;
+package com.sgic.defect.com.sgic.defect.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
+public class UserDto {
 
-@Entity
-@Table(schema = "defect_final" , name = "user")
-public class User implements Serializable {
-
-    @Id
     Long userId;
-    Long projectId;
-    Long moduleId;
     String userName;
     String userPassword;
     String name;
     String email;
     String userRole;
+    Long projectId;
+    Long moduleId;
 
     public Long getUserId() {
         return userId;
@@ -25,14 +17,6 @@ public class User implements Serializable {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
     }
 
     public String getUserName() {
@@ -73,6 +57,14 @@ public class User implements Serializable {
 
     public void setUserRole(String userRole) {
         this.userRole = userRole;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     public Long getModuleId() {

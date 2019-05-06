@@ -18,6 +18,8 @@ public class Project implements Serializable {
 	Long projectId;
 	String projectName;
 	String projectMembers;
+	Long moduleId;
+	Long userId;
 	
 	public Long getProjectId() {
 		return projectId;
@@ -38,6 +40,19 @@ public class Project implements Serializable {
 		this.projectMembers = projectMembers;
 	}
 
-	
-	
+	public Long getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(Long moduleId) {
+		this.moduleId = moduleId;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 }
