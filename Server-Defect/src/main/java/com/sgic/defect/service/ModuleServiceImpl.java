@@ -13,7 +13,6 @@ public class ModuleServiceImpl implements ModuleService {
     @Autowired
     ModuleRepository moduleRepository;
 
-
     @Override
     public void saveModule(Module module) {
         moduleRepository.save(module);
@@ -26,12 +25,12 @@ public class ModuleServiceImpl implements ModuleService {
 
     @Override
     public Module getModuleById(Long id) {
-        return moduleRepository.findModuleByModuleId(id);
+        return moduleRepository.getModuleById(id);
     }
 
     @Override
     public Module deleteModuleById(Long id) {
-        return moduleRepository.deleteModuleByModuleId(id);
+        return moduleRepository.deleteModuleById(id);
     }
 
     @Override

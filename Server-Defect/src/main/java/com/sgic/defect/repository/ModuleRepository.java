@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ModuleRepository extends JpaRepository {
 
-    Module findModuleByModuleId(Long id);
+    Module getModuleById(Long id);
 
-    Module deleteModuleByModuleId(Long id);
+    Module deleteModuleById(Long id);
 }

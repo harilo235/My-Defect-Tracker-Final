@@ -1,18 +1,23 @@
 package com.sgic.defect.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(schema = "defect_final" , name = "user")
 public class User implements Serializable {
 
+    @OneToOne
+    @JoinColumn(name = "projectId", nullable = false)
+    private Project projectId;
+
+    @OneToOne
+    @JoinColumn(name = "moduleId", nullable = false)
+    private Module moduleId;
     @Id
     Long userId;
-    Long projectId;
-    Long moduleId;
+//    Long projectId;
+//    Long moduleId;
     String userName;
     String userPassword;
     String name;
@@ -27,12 +32,20 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public Long getProjectId() {
+    public Project getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Long projectId) {
+    public void setProjectId(Project projectId) {
         this.projectId = projectId;
+    }
+
+    public Module getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(Module moduleId) {
+        this.moduleId = moduleId;
     }
 
     public String getUserName() {
@@ -75,11 +88,4 @@ public class User implements Serializable {
         this.userRole = userRole;
     }
 
-    public Long getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(Long moduleId) {
-        this.moduleId = moduleId;
-    }
 }

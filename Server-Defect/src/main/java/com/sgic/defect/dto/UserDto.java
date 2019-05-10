@@ -1,4 +1,4 @@
-package com.sgic.defect.com.sgic.defect.dto;
+package com.sgic.defect.dto;
 
 public class UserDto {
 
