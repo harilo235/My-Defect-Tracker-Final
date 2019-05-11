@@ -8,20 +8,31 @@ import java.util.List;
 @Table(schema = "defect_final", name = "table")
 public class Module implements Serializable {
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "projectId", nullable = false)
-    private Project projectId;
+    private Project project;
 
-    @OneToMany(mappedBy="User",cascade=CascadeType.ALL)
-    @JoinColumn(name = "userId", nullable = false)
-    private User userId;
+    @OneToMany(mappedBy="Module",cascade=CascadeType.ALL)
+    List <User> user;
 
     @Id
     Long moduleId;
     String moduleName;
     String moduleMembers;
-//    Long projectId;
-//    Long userId;
+    //Long projectId;
+    Long userId;
+
+//    public List<User> getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(List<User> user) {
+//        this.user = user;
+//    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public Long getModuleId() {
         return moduleId;
@@ -47,19 +58,23 @@ public class Module implements Serializable {
         this.moduleMembers = moduleMembers;
     }
 
-    public Project getProjectId() {
-        return projectId;
+    public Project getProject() {
+        return project;
     }
 
-    public void setProjectId(Project projectId) {
-        this.projectId = projectId;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
-    public User getUserId() {
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
+
+    public Long getUserId() {
         return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
     }
 }

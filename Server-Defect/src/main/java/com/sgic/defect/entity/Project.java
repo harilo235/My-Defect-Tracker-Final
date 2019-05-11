@@ -10,36 +10,49 @@ import javax.persistence.*;
 @Table(schema = "defect_final", name="project")
 public class Project implements Serializable {
 
-	@OneToMany(mappedBy="Module",cascade=CascadeType.ALL)
-	@JoinColumn(name = "moduleId", nullable=false)
-	private Module moduleId;
+	@OneToMany(mappedBy="Project",cascade=CascadeType.ALL)
+	List<Module> module ;
 
-	@OneToMany(mappedBy="User",cascade=CascadeType.ALL)
-	@JoinColumn(name = "userId", nullable = false)
-	private User userId;
+	@OneToMany(mappedBy="Project",cascade=CascadeType.ALL)
+	List <User> user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long projectId;
 	String projectName;
 	String projectMembers;
-//	Long moduleId;
-//	Long userId;
+	Long moduleId;
+	Long userId;
 
+	public List<Module> getModule() {
+		return module;
+	}
 
-	public Module getModuleId() {
+	public void setModule(List<Module> module) {
+		this.module = module;
+	}
+
+	public List<User> getUser() {
+		return user;
+	}
+
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
+
+	public Long getModuleId() {
 		return moduleId;
 	}
 
-	public void setModuleId(Module moduleId) {
+	public void setModuleId(Long moduleId) {
 		this.moduleId = moduleId;
 	}
 
-	public User getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 

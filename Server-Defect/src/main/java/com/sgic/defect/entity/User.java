@@ -1,5 +1,7 @@
 package com.sgic.defect.entity;
 
+import org.hibernate.mapping.ToOne;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -7,17 +9,18 @@ import java.io.Serializable;
 @Table(schema = "defect_final" , name = "user")
 public class User implements Serializable {
 
-    @OneToOne
-    @JoinColumn(name = "projectId", nullable = false)
-    private Project projectId;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "projectId", nullable = false)
+    private Project project;
+
+    @ManyToOne
     @JoinColumn(name = "moduleId", nullable = false)
-    private Module moduleId;
+    private Module module;
     @Id
     Long userId;
-//    Long projectId;
-//    Long moduleId;
+    Long projectId;
+    Long moduleId;
     String userName;
     String userPassword;
     String name;
@@ -32,19 +35,35 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public Project getProjectId() {
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
+    }
+
+    public Long getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Project projectId) {
+    public void setProjectId(Long projectId) {
         this.projectId = projectId;
     }
 
-    public Module getModuleId() {
+    public Long getModuleId() {
         return moduleId;
     }
 
-    public void setModuleId(Module moduleId) {
+    public void setModuleId(Long moduleId) {
         this.moduleId = moduleId;
     }
 
